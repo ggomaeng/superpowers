@@ -49,7 +49,7 @@ This structure informs the task decomposition. Each task should produce self-con
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:team-driven-development (if agent teams available), superpowers:subagent-driven-development (recommended), or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -128,11 +128,13 @@ After writing the complete plan:
 
 After saving the plan, offer execution choice:
 
-**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Two execution options:**
+**"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Three execution options:**
 
-**1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
+**1. Subagent-Driven (recommended for most tasks)** - Fresh subagent per task, two-stage review, lowest token cost
 
-**2. Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints
+**2. Inline Execution** - Execute in this session, batch with checkpoints
+
+**3. Team-Driven (highest quality, highest token cost)** - Agent teams with specialist teammates, scoring rubric with convergence loops, adversarial debate between reviewers. Requires `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`.
 
 **Which approach?"**
 
@@ -143,3 +145,24 @@ After saving the plan, offer execution choice:
 **If Inline Execution chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
 - Batch execution with checkpoints for review
+
+**If Team-Driven chosen:**
+- **REQUIRED SUB-SKILL:** Use superpowers:team-driven-development
+- Prompt user for rubric configuration:
+
+  "Team-Driven selected. Let's configure your quality rubric.
+
+  4 core dimensions are always included:
+  - Spec Compliance (≥ 8)
+  - Code Quality (≥ 7)
+  - Test Coverage (≥ 7)
+  - Correctness (≥ 8)
+
+  What additional quality dimensions matter for this project?
+  (e.g., security, performance, accessibility, i18n)
+
+  Or 'none' for core only."
+
+- Confirm thresholds with user (defaults shown above, user can adjust)
+- Add Quality Rubric section to plan header before saving
+- Agent team per task + parallel specialist review + scoring rubric convergence
