@@ -280,7 +280,7 @@ After all tasks complete:
 - **superpowers:using-git-worktrees** — REQUIRED: Set up isolated workspace before starting
 - **superpowers:writing-plans** — Creates the plan (modified to offer team-driven option)
 - **superpowers:finishing-a-development-branch** — Complete development after all tasks
-- **superpowers:requesting-code-review** - Code review template for reviewer teammates
+- **superpowers:requesting-code-review** - Reference for review standards (reviewer teammates have dedicated prompts)
 
 **Teammates should use:**
 - **superpowers:test-driven-development** — Follow TDD for implementation

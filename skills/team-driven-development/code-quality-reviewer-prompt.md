@@ -62,6 +62,8 @@ Teammate spawn prompt:
   | 4-5 | Poor — significant quality problems, hard to maintain |
   | 1-3 | Unacceptable — needs complete rewrite |
 
+  Default threshold: ≥ 7
+
   ## Report Format
 
   Message the lead with:

@@ -64,6 +64,8 @@ Teammate spawn prompt:
   | 4-5 | Weak — major gaps, many untested paths |
   | 1-3 | Insufficient — minimal or no meaningful tests |
 
+  Default threshold: ≥ 7
+
   ## Report Format
 
   Message the lead with:

@@ -165,4 +165,5 @@ After saving the plan, offer execution choice:
 
 - Confirm thresholds with user (defaults shown above, user can adjust)
 - Add Quality Rubric section to plan header before saving
+- Use the Quality Rubric format from superpowers:team-driven-development (Rubric in Plan Header section)
 - Agent team per task + parallel specialist review + scoring rubric convergence

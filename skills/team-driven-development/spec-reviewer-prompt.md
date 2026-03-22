@@ -70,6 +70,8 @@ Teammate spawn prompt:
   | 4-5 | Major gaps — multiple missing requirements or wrong approach |
   | 1-3 | Fundamentally wrong — built the wrong thing |
 
+  Default threshold: ≥ 8
+
   ## Report Format
 
   Message the lead with:

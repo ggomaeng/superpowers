@@ -20,6 +20,8 @@ Teammate spawn prompt:
 
   [Key integration points, dependencies, related files]
 
+  Work from: [directory]
+
   ## Your Job
 
   Verify the implementation is functionally correct:
@@ -65,6 +67,8 @@ Teammate spawn prompt:
   | 6-7 | Partially correct — some paths broken, integration issues |
   | 4-5 | Significantly broken — core functionality has bugs |
   | 1-3 | Non-functional — doesn't work at all |
+
+  Default threshold: ≥ 8
 
   ## Report Format
 

@@ -47,6 +47,17 @@ If two reviewers report conflicting findings about the same code:
 2. Let them debate (1-2 messages each)
 3. If no resolution, present conflict to human for decision
 
+## Implementer Status During Convergence Rounds
+
+If the implementer reports BLOCKED or NEEDS_CONTEXT during a convergence round (Round 2+):
+
+**NEEDS_CONTEXT:** Message the implementer with the missing context. Do not count this as a convergence round — resume scoring after context is provided.
+
+**BLOCKED:** Assess the blocker:
+1. If fixable with more context, provide it and resume
+2. If the fix requires a different approach, escalate to human with round history
+3. Do not force retry without changes — the implementer said it's stuck for a reason
+
 ## Round Tracking
 
 Keep track of convergence progress:
