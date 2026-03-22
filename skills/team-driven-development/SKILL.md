@@ -1,6 +1,6 @@
 ---
 name: team-driven-development
-description: Use when executing implementation plans and agent teams are available, for highest quality output with parallel multi-angle review and scoring rubric convergence
+description: Use when executing implementation plans and agent teams are available
 ---
 
 # Team-Driven Development
@@ -64,7 +64,7 @@ digraph process {
         "Message implementer with failing dimensions + feedback" [shape=box];
         "Implementer fixes, reviewers re-score ONLY failing dimensions" [shape=box];
         "Round < max (3)?" [shape=diamond];
-        "Escalate to human" [shape=box];
+        "Escalate to human" [shape=doublecircle];
         "Shut down team, mark task complete" [shape=box];
     }
 
@@ -77,7 +77,7 @@ digraph process {
         "Project rubric passes?" [shape=diamond];
         "Integration team fixes, re-scores" [shape=box];
         "Project round < max (2)?" [shape=diamond];
-        "Escalate project issues to human" [shape=box];
+        "Escalate project issues to human" [shape=doublecircle];
     }
 
     "Use superpowers:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
@@ -182,7 +182,21 @@ Require plan approval for Implementer before they make changes.
 
 ## Handling Implementer Status
 
-Same as SDD — implementers report DONE, DONE_WITH_CONCERNS, NEEDS_CONTEXT, or BLOCKED. Handle each per the SDD skill's guidance.
+Implementer teammates report one of four statuses. Handle each appropriately:
+
+**DONE:** Proceed to parallel review phase. All reviewers begin simultaneously.
+
+**DONE_WITH_CONCERNS:** The implementer completed the work but flagged doubts. Read the concerns before proceeding. If concerns are about correctness or scope, address them before review. If they're observations, note them and proceed.
+
+**NEEDS_CONTEXT:** The implementer needs information that wasn't provided. Message the implementer with the missing context — do not spawn a new teammate.
+
+**BLOCKED:** The implementer cannot complete the task. Assess the blocker:
+1. If it's a context problem, message the implementer with more context
+2. If the task requires more reasoning, shut down the team and re-spawn with a more capable model
+3. If the task is too large, break it into smaller pieces
+4. If the plan itself is wrong, escalate to the human
+
+**Never** ignore an escalation or force the same teammate to retry without changes.
 
 ## Convergence Loop
 
@@ -254,7 +268,10 @@ After all tasks complete:
 - Only intervene if debate becomes circular (3+ messages without progress)
 
 **If implementer is blocked:**
-- Same as SDD: provide context, upgrade model, break task, or escalate
+- Message the existing implementer with more context
+- If model capability is the issue, shut down team and re-spawn with a more capable model
+- If task is too large, break it and spawn a new team
+- If plan is wrong, escalate to human
 - Never ignore escalation
 
 ## Integration
@@ -263,6 +280,7 @@ After all tasks complete:
 - **superpowers:using-git-worktrees** — REQUIRED: Set up isolated workspace before starting
 - **superpowers:writing-plans** — Creates the plan (modified to offer team-driven option)
 - **superpowers:finishing-a-development-branch** — Complete development after all tasks
+- **superpowers:requesting-code-review** - Code review template for reviewer teammates
 
 **Teammates should use:**
 - **superpowers:test-driven-development** — Follow TDD for implementation
