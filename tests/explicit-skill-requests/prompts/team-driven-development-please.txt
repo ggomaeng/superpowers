@@ -1,0 +1,1 @@
+I'd like to use team-driven-development to execute the plan at docs/superpowers/plans/auth-system.md. Please use the team-driven approach with agent teams.

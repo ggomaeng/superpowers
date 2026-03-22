@@ -1,0 +1,1 @@
+I have an implementation plan at docs/superpowers/plans/auth-system.md with 5 tasks. I want to use agent teams to execute it with the highest quality possible - parallel reviewers that debate each other and score against a rubric. Can you help me execute this plan?
